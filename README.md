@@ -19,6 +19,13 @@ Then require GoSquared in your application
 require 'gosquared'
 ```
 
+Then require GoSquared in your application
+
+```ruby
+require 'gosquared'
+```
+
+
 #Tracking API
 This is for sending data to GoSquared. It allows you to track:
 * Events
