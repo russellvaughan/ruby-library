@@ -1,3 +1,5 @@
+require 'coveralls'
+Coveralls.wear!
 require 'gosquared.rb'
 require 'gosquared/account.rb'
 require 'gosquared/now.rb'
