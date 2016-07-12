@@ -62,6 +62,29 @@ describe Account do
 		expect(gs.fetch).to eq("a" => [{"test"=>"response"}])
 	end
 
+	before do 
+		data = '{"a": [{"test": "response"}]}'
+		stub_request(:get, "https://api.gosquared.com/account/v1/blocked/visitors/test.email@gmail.com?api_key=demo&site_token=GSN-2194840-F").
+		with(:headers => {'Accept'=>'*/*', 'Accept-Encoding'=>'gzip;q=1.0,deflate;q=0.6,identity;q=0.3', 'Host'=>'api.gosquared.com', 'User-Agent'=>'Ruby'}).
+		to_return(:status => 200, :body => data, :headers => {})
+	end
+
+	before do 
+		data = '{"a": [{"test": "response"}]}'
+		stub_request(:get, "https://api.gosquared.com/account/v1/blocked/bots?api_key=demo&site_token=GSN-2194840-F").
+		with(:headers => {'Accept'=>'*/*', 'Accept-Encoding'=>'gzip;q=1.0,deflate;q=0.6,identity;q=0.3', 'Host'=>'api.gosquared.com', 'User-Agent'=>'Ruby'}).
+		to_return(:status => 200, :body => data, :headers => {})
+	end
+
+	it "retrieves whether bots are blocked or not" do 
+		gs.blocked.bots 
+		expect(gs.fetch).to eq("a" => [{"test"=>"response"}])
+	end
+
+
+
+
+
 	
 
 end
